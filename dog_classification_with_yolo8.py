@@ -7,9 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1Ik_QU3xOEMFIY4Cf5NO_CK6t8xOtD_Up
 """
 
+!pip install --upgrade ultralytics
+
+!pip install roboflow
 
 from roboflow import Roboflow
-rf = Roboflow(api_key="***********")
+rf = Roboflow(api_key="NWvTlLN20iba07SQBSSR")
 project = rf.workspace("roboflow-baravenp").project("deteccion-animal")
 version = project.version(1)
 dataset = version.download("yolov8")
@@ -83,6 +86,38 @@ def detectFromImage():
     plt.axis('off')
     plt.show()
 
-    detectFromImage()
+detectFromImage()
 
 detectFromImage()
+
+detectFromImage()
+
+detectFromImage()
+
+detectFromImage()
+
+detectFromImage()
+
+# prompt: write code for download project files as zip
+
+import shutil
+
+def zip_project_files(output_filename="project_files.zip"):
+    """Zips the project files into a specified output file.
+
+    Args:
+        output_filename (str, optional): The name of the output zip file. Defaults to "project_files.zip".
+    """
+    try:
+        shutil.make_archive(output_filename.replace(".zip", ""), 'zip', "/content/runs")  # Zip the /content directory
+        print(f"Successfully created {output_filename}")
+    except Exception as e:
+        print(f"Error creating zip file: {e}")
+
+
+# Example usage: Create a zip file named 'my_project.zip'
+zip_project_files("my_project.zip")
+
+# Download the zip file
+from google.colab import files
+files.download("my_project.zip")
