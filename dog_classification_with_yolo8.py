@@ -7,12 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1Ik_QU3xOEMFIY4Cf5NO_CK6t8xOtD_Up
 """
 
-!pip install --upgrade ultralytics
+# pip install --upgrade ultralytics
 
-!pip install roboflow
+# pip install roboflow
 
 from roboflow import Roboflow
-rf = Roboflow(api_key="NWvTlLN20iba07SQBSSR")
+rf = Roboflow(api_key="************")
 project = rf.workspace("roboflow-baravenp").project("deteccion-animal")
 version = project.version(1)
 dataset = version.download("yolov8")
